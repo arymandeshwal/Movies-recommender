@@ -34,14 +34,7 @@ def sample_recommendation(model, data, user_ids, year):
 		#rank them in oder of most liked to least
 		top_items = data['item_labels'][np.argsort(-scores)]
 
-		#print out the results 
-		#print("user "+str(user_id))
-		#print("		known positives:")
-
-		#for x in known_positives[:3]:
-		#	print("			"+str(x))
-
-		#print("		recommended:")
+	
 		for x in top_items[:2]:
 			date = x[-5:-1]
 			if (x not in movies) and (int(date) >= year):
@@ -52,7 +45,3 @@ def sample_recommendation(model, data, user_ids, year):
 lists = list(range(1,50))
 
 sample_recommendation(model,data,lists,year)
-"""
-print("recommended:")
-print(movies_re)
-"""
